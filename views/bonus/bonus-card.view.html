@@ -1,0 +1,17 @@
+
+<div class="p-4 container">
+<?php
+  $bonus_card = $_SESSION['temp'];
+  echo 'TODO: - Add confetti ';
+  echo '
+  <div class="bg-light p-2 text-center mx-auto" style="max-width:500px">
+    <h3>Bonus Card</h3>
+    <div class="p-2 m-2 d-inline-block bg-warning font-weight-bold">'.$bonus_card['name'].' - '.$bonus_card['identifier'].'</div>
+    <p class=""><b class="p-2 bg-light badge">$'.$bonus_card['price'].' USD</b> has been added to your wallet.!</p>
+    <img src="'.BASE_PATH.'plugins/slampacks/images/Cards/'.$bonus_card['pack'].'/'.
+    str_ireplace('#','--',$bonus_card['identifier']).'.jpeg" width="250px" class="p-3 bg-white d-block mx-auto mb-4">
+    
+  </div>';
+?>.
+<script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+</dIv>

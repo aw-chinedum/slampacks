@@ -1,0 +1,26 @@
+<div class="container holder pt-5 px-2">
+<?php
+  
+  
+  $cards = $_SESSION['temp'];
+  
+   echo '<div class="d-block grid-wrapper mx-auto mb-3 p-2 " style="min-width: 300px">';
+		echo '<div class="d-block mx-auto text-center">'.$cards['result'][0]['pack']. ' Pack </div>';
+			echo '<div class="block p-2 d-flex justify-content-around " style="overflow-x:scroll">';
+			 foreach($cards['result'] as $card){
+				$folder_name = $card['pack'];
+				$file =BASE_PATH.'plugins/slampacks/images/Cards/'.$folder_name.'/'.str_ireplace('#','--',$card['identifier']).'.jpeg';
+				$card_identifier =$card['identifier'];
+			   
+				
+					echo '
+					<a href="'.BASE_PATH.'full-card/'.$folder_name.'/'.$card_identifier.'" up-layer="new modal">
+					  <img src="'.$file.'"  class="grid-card p-2 my-3 mx-2 " style="min-height:150px; min-width:100px">
+					</a>';
+				
+			 }
+			echo '</div>';
+		echo '</div>';
+	echo '</div>';
+?>
+</div>

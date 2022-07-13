@@ -1,0 +1,46 @@
+
+<style>
+up-modal[size="medium"] up-modal-box {
+  width: min-content;
+}
+</style>
+
+
+<div style="background-color:gainsboro">
+<?php
+  $card = $_SESSION['temp']['result'][0];
+  $type = $_SESSION['temp']['type'];
+  $identifier = $_SESSION['temp']['identifier'];
+
+	if($identifier == 'packs'){
+		$product_type = 'packs';
+	} else {
+		$product_type = 'cards';
+	}
+  //~ print_r($card);
+  echo '<div class="mb-3 p-3 cards" >';
+    echo '
+        <div class="d-block font-weight-bold mx-auto"><h1 align="center">'.$type. ' Pack <br>
+          <h3 class="mx-auto">'.$card['name'].' '.$identifier.' </h3>
+          <a class="btn btn-success mx-auto d-block mx-3" href="'.BASE_PATH.'buy-now/'.$product_type.'/'.$card['id'].'">BUY NOW $'.$card['price'].' USD</a> 
+          ';
+          echo '
+        </div>
+        
+        ';
+      echo '<div class="block p-1 ">';
+      if(isset($card['pack'])){
+			echo '<img src="'.BASE_PATH.'plugins/slampacks/images/Cards/'.$card['pack'].'/'.str_ireplace('#','--',$card['identifier']).'.jpeg" class="card mx-auto" width="320px"  >';
+		} else {
+			echo '<img  src="'.BASE_PATH.'plugins/slampacks/images/Packs/'.$card['name'].'.jpeg"  class="card mx-auto" style="min-width:200px" width="320px">';
+		}
+      
+      echo '<span class="d-inline-block small chip">rarity - '.$card['pull_rate'].' / 1000 '.'</span>
+      ';
+    echo '</div>';
+  echo '</div>';
+?>
+</div>
+
+
+

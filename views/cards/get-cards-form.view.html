@@ -1,0 +1,31 @@
+<div class="px-3 d-block mx-auto row mb-3" style="max-width:870px" up-keep>
+  <form method="get" class="form-inline" action="<?php echo BASE_PATH.'get-cards';?>" up-target=".holder" up-autosubmit >
+    
+    <a href="<?php echo BASE_PATH.'get-packs';?>" up-target=".holder" class="btn btn-secondary">Open packs</a>
+    
+    <select name="pack" id="pack-input" class="form-control m-2">
+		<option value="All">All</option>
+		<option value="Flame">Flame Pack</option>
+		<option  value="Elemental">Elemental Pack</option>
+		<option value="Lightning">Lightning Pack</option>
+		<option value="Legendary">Legendary Pack</option>
+		<option value="Rainbow">Rainbow Pack</option>
+    </select>
+    
+    
+    <select name="display" id="display-input" class="form-control m-2">
+		<option value="rows" selected>DISPLAY: ROWS</option>
+		<option selected value="grid">DISPLAY: GRID</option>
+    </select>
+    
+    
+    <select name="sort-input" id="sort-input" class="form-control m-2">
+		<option value="A-Z">SORT: CARD NAME A-Z</option>
+		<option value="Z-A">SORT: CARD NAME Z-A</option>
+		<option value="rarity-desc">SORT: RARITY (DESC)</option>
+		<option value="rarity-asc">SORT: RARITY (ASC)</option>
+    </select>
+
+    <button type="submit" name="submit" class="btn btn-info m-2">Change view</button>
+  </form>
+</div>

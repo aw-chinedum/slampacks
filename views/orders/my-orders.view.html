@@ -1,0 +1,41 @@
+<div class="p-4 container" style="max-width:750px; ">
+  <h1 class="text-center py-4">My Orders</h1>
+<?php
+$q = $_SESSION['temp'];
+//~ print_r($q);
+echo '
+<table class="pt-3 table table-striped mx-auto bg-white p-0" id="datatable">
+  <thead>
+    <th>Id</th>
+    <th>Product</th>
+    <th>Order Details</th>
+    <th>Status</th>
+  </thead>
+
+  <tbody>';
+  $num =1;
+    foreach($q['result'] as $product){
+      $card = Api::get_one('cards','id',$product['product_id']);
+      //~ print_r($card);
+       echo '
+      <tr>
+        <td>'.$num.'</td>
+        <td>'.$product['product'].'</td>
+        <td><a up-layer="new modal" href="'.BASE_PATH.'full_card/'.$card['pack'].'/'.str_ireplace('#','--',$card['identifier']).'.jpeg">'.$product['order details'].'</a><br>
+               $'.number_format($product['order_total'],2).'<br>
+               '.timeago($product['created']).'<br>
+        </td>
+        <td>
+          <small>'.$product['order_status'].'</small>
+        </td>
+      </tr>';
+      $num++;
+    }
+ 
+
+    echo'
+  </tbody>
+</table>';
+load_datatables();
+?>
+</div>

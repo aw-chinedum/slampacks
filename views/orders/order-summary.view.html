@@ -1,0 +1,18 @@
+<div class="p-4 d-block mx-auto" style="max-width:600px" >
+  <h1>Order Summary</h1>
+  <div class="bg-white p-3">
+    <?php 
+      $order = $_SESSION['temp'];
+      //~ print_r($order);
+      
+      echo '
+      <h4>Purchase [ '.$order['product'].' ]</h4>
+      <p class="mt-4">
+       '.ucfirst(rtrim($order['product'],'s')).': <b>'.$order['order details'].'</b><hr>
+       Order Total: <b>$'.$order['order_total'].'</b> USD</p>
+      ';
+      Orders::checkout($order['id']);
+    ?>
+  </div>
+  
+</div>

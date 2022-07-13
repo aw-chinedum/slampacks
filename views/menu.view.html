@@ -1,0 +1,45 @@
+<div class="">
+    <header class="d-flex justify-content-end pb-3 row ">
+      <ul class="nav nav-pills px-3 mx-3 bg-white">
+        <?php
+        
+            $menus = array();
+            $menus['Home'] = BASE_PATH.'';
+            $menus['About'] = BASE_PATH.'about';
+            
+            if(!is_logged_in()){
+              $menus['Login'] = BASE_PATH.'login';
+              $menus['Signup'] = BASE_PATH.'register';
+            } else {
+               if(is_admin()){
+                $menus['Orders'] = BASE_PATH.'orders';
+                $menus['Customers'] = BASE_PATH.'customers';
+                $menus['Me'] = BASE_PATH.'me';
+              }
+              $menus['Me'] = BASE_PATH.'me';
+              $menus['Logout'] = BASE_PATH.'logout';
+            }
+
+          
+          
+          foreach($menus as $name=>$link){
+            if($_SESSION['current_url'] == $link){
+              $active = ' bg-light';'                                                                                                                                                                                                 font-weight-bold';
+            } else {
+              $active = '';
+            }
+            
+            if(string_contains($link,'login') || string_contains($link,'register')){
+              $modal = 'up-layer="new modal" up-size="medium"';
+            } else {
+              $modal = '';
+            }
+            
+            echo '<li class="nav-item"><a href="'.$link.'" class="nav-link p-2 '.$active.'" '.$modal.'>'.$name.'</a></li>';
+          }
+         
+        ?>
+  
+      </ul>
+    </header>
+</div>  

@@ -1,0 +1,21 @@
+
+
+<div class="container">
+<?php
+  $cards = $_SESSION['temp'];
+  //~ print_r($cards).' <br>';
+  
+  $count = 0;
+  foreach($cards as $folder_name=>$files){
+    echo '<div class="row mb-3 p-2 cards" style="background-color:gainsboro">';
+      echo '<div class="d-block">'.$folder_name. ' Pack </div>';
+      echo '<div class="block p-2 mx-auto d-flex justify-content-around " style="overflow-x:scroll">';
+      foreach($files['files'] as $card){
+        echo '<img src="'.$card.'" width="150px" height="400px" class="card p-2 m-1" style="min-width:120px; min-height: 250px;">';
+      }
+      echo '</div>';
+    echo '</div>';
+  }
+  
+?>
+</div>

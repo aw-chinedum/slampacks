@@ -1,0 +1,102 @@
+<div class="container holder pt-5" style="min-height: 500px">
+  
+  
+<?php
+  $packs = $_SESSION['temp'];
+
+    //~ foreach($cards as $pack=>$cards){
+      echo '<div class="row grid-wrapper mb-3 p-2" style="background-color:gainsboro">';
+        echo '<div class="d-block mb-4">'.$pack. ' Packs </div>';
+          echo '<div class=" p-2 mt-5 mx-auto text-center" style="position:relative;">';
+          $z_index = 1;
+          $rotate = 5;
+          $translate = 5;
+          foreach($packs as $pack){
+            
+            $pack = str_ireplace(DIR_PATH,BASE_PATH,$pack);
+            //~ echo $pack;
+            //~ $card_identifier = str_ireplace(BASE_PATH.'plugins/slampacks/images/Cards/'.$pack.'/','',$card);
+            $card_identifier = strstr(str_ireplace(BASE_PATH.'plugins/slampacks/images/Packs/','',$pack),'.',true);
+            //~ echo $card_identifier.'<br>';
+
+            
+            echo '
+              <a href="'.BASE_PATH.'full-card/'.$card_identifier.'/packs" up-layer="new modal" up-size="medium">
+                <img src="'.$pack.'" width="150px" height="250px" class="stacked-card p-0 m-2 d-inline-block" style="border: 6px solid gold; z-index:'.$z_index.';" onclick="">
+              </a>';
+              $z_index++;
+              $rotate -= 10;
+              $translate +=5;
+          }
+        echo '</div>';
+      echo '</div>';
+  
+?>
+
+
+<style>
+.stacked-card{
+  transform-origin: bottom left;
+}
+.stacked-card:hover{
+  animation: flipcard 2s ease 0s 1 normal forwards;
+  transform: rotateZ(30deg);
+  transform: translate(0px,-10px);
+  transform-origin: bottom right;
+  z-index: 100
+  
+}
+
+@keyframes flipcard {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+	}
+
+
+	50% {
+		animation-timing-function: ease-in;
+		transform: translateY(-70px);
+    transform: scale(1.3,1.3);
+
+  
+    
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+    transform: rotateX(20deg);
+    transform-origin: bottom right;
+    transform: scale(1.3,1.3);
+<!--
+		transform: translateY(-12px);
+-->
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+    transform: scale(1.3,1.3);
+    z-index: 100
+<!--
+		transform: translateY(-6px);
+-->
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+    opacity: 1;
+    transform: scale(1.3,1.3);
+	}
+
+
+	100% {
+		animation-timing-function: ease-out;
+		transform: scale(1.1,1.1);
+    z-index: 100
+   
+	}
+}
+</style>
+
+</div>
+

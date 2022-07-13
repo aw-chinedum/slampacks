@@ -1,0 +1,68 @@
+
+<div class="h-100  ">
+  <div class="container py-5 h-100">
+    <div class=" d-flex justify-content-center align-items-center h-100">
+        <div class="2" style="border-radius: 15px;">
+          <div class="bg-white p-0 rounded ">
+     
+                <div class="p-4" style="max-width:550px">
+                  <h3 class="fw-normal mb-5" style="color: #4835d4;">Signup / Register</h3>
+
+                  <form method="post" action="<?php echo BASE_PATH.'register'; ?>"
+                  <div class="row">
+                    <div class="col-md-6  col-xs-12 mb-2 pb-2">
+
+                      <div class="form-outline">
+                        <input type="text" name="firstname" id="firstname" class="form-control form-control-lg" required />
+                        <label class="form-label" for="firstname">First name</label>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6  col-xs-12 mb-2 pb-2">
+
+                      <div class="form-outline">
+                        <input type="text" name="lastname" id="lastname" class="form-control form-control-lg" required />
+                        <label class="form-label" for="lastname">Last name</label>
+                      </div>
+                    </div>
+
+                  <div class="col-md-6  col-xs-12 mb-2 pb-2">
+                      <div class="form-outline">
+                        <input type="email" id="email" name="email" class="form-control form-control-lg"  required />
+                        <label class="form-label" for="email">Email</label>
+                      </div>
+                  </div>
+
+                    <div class="col-md-6 col-sm-12 mb-2 pb-2 mb-md-0 pb-md-0">
+                      <div class="form-outline">
+                        <input type="password" name="password"  id="password" class="form-control form-control-lg"  required />
+                        <label class="form-label" for="password">Password</label>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 mb-2 pb-2 mb-md-0 pb-md-0">
+                      <div class="form-outline">
+                        <input type="password" name="confirm-password" id="confirm-password" class="form-control form-control-lg"  required />
+                        <label class="form-label" for="confirm-password">Confirm Password</label>
+                      </div>
+                    </div>
+
+                  
+                    <div class="col-md-6 col-sm-12">
+                      <select class="select mb-2" name="gender"  required>
+                        <option>Male</option>
+                        <option >Female</option>
+                      </select>
+                    </div>
+
+
+                    <div class="col-md-12 col-sm-12">
+                      <input type="submit" name="submit" value="Submit" class="btn btn-primary mt-3">
+                    </div>
+              </div>
+              
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
